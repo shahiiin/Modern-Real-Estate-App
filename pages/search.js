@@ -5,7 +5,8 @@ import { Flex, Box, Text, Icon } from '@chakra-ui/react'
 import { BsFilter } from 'react-icons/bs'
 
 // import Property from '../components/Property';
-import SearchFilters from '../components/SearchFilters';
+import SearchFilters from '../components/SearchFilters'
+import Property from '../components/Property'
 // import { baseUrl, fetchApi } from '../utils/fetchApi';
 // import noresult from '../assets/images/noresult.svg'
 
@@ -34,6 +35,11 @@ const Search = () => {
       <Text fontSize="2xl" p="4" fontWeight="bold">
         Properties {router.query.purpose}
       </Text>
+      <Flex flexWrap="wrap">
+        {[].map((property) => (
+          <Property property={property} key={property.id} />
+        ))}
+      </Flex>
     </Box>
   )
 }
