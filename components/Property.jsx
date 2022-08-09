@@ -20,10 +20,19 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
                             {isVerified && <GoVerified />}
                         </Box>
                         <Text fontWeight='bold' fontSize='lg'>
-                            AED {price} {rentFrequency && `/${rentFrequency}`}
+                            AED {millify(price)} {rentFrequency && `/${rentFrequency}`}
                         </Text>
                     </Flex>
+                    <Box>
+                        <Avatar size='sm' src={agency?.logo?.url}></Avatar>
+                    </Box>
                 </Flex>
+                <Flex alignItems='center' p='1' justifyContent='space-between' w='250px' color='blue.400'>
+                    {rooms}<FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
+                </Flex>
+                <Text fontSize="lg">
+                    {title.length > 30 ? `${title.substring(0, 30)}...` : title}
+                </Text>
             </Box>
         </Flex>
     </Link>
